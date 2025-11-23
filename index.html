@@ -123,8 +123,9 @@
       justify-content: center;
       align-items: center;
       transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: 30px;
+      padding: 20px 15px;
       overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .page.hidden {
@@ -143,24 +144,29 @@
       text-align: center;
       position: relative;
       z-index: 10;
-      padding: 0 15px;
+      padding: 15px;
+      margin: auto;
     }
 
     h1.title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(2.2rem, 5.5vw, 3.5rem);
       letter-spacing: 0.02em;
-      margin-bottom: 12px;
-      text-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      margin-bottom: 16px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 2px 10px rgba(255,255,255,0.3);
       animation: fadeInDown 700ms ease both;
+      line-height: 1.2;
+      color: #fff;
     }
 
     p.lead {
-      font-size: clamp(1rem, 2.5vw, 1.15rem);
-      color: rgba(255,255,255,0.95);
-      margin-bottom: 22px;
-      font-weight: 300;
+      font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+      color: rgba(255,255,255,0.98);
+      margin-bottom: 18px;
+      font-weight: 400;
       animation: fadeIn 900ms ease both;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      line-height: 1.5;
     }
 
     /* Typewriter effect */
@@ -334,17 +340,22 @@
     }
 
     .reveal-title {
-      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-size: clamp(2.2rem, 5.5vw, 3rem);
       font-family: 'Playfair Display', serif;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       animation: fadeInDown .8s both;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 2px 10px rgba(255,255,255,0.3);
+      line-height: 1.2;
+      color: #fff;
     }
 
     .reveal-sub {
-      font-size: clamp(1rem, 2.5vw, 1.15rem);
-      margin-bottom: 18px;
-      color: rgba(255,255,255,0.95);
-      font-weight: 300;
+      font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.98);
+      font-weight: 400;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      line-height: 1.5;
     }
 
     .particle {
@@ -386,8 +397,8 @@
     /* Cake with hover effects */
     .cake-wrap {
       margin: 20px auto 8px;
-      width: min(340px, 90vw);
-      height: min(380px, 60vh);
+      width: min(340px, 85vw);
+      height: min(380px, 55vh);
       position: relative;
       display: inline-block;
     }
@@ -456,12 +467,18 @@
 
     .candles {
       position: absolute;
-      top: -56px;
+      top: -46px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 18px;
       align-items: flex-end;
+      transition: opacity 0.6s ease;
+    }
+
+    .candles.blown-out {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .candle {
@@ -484,6 +501,12 @@
       background: linear-gradient(to top,#ff6b4b 0%, #ffd24b 55%, #ffcb6b 100%);
       box-shadow: 0 0 18px rgba(255,140,90,0.35);
       animation: flicker .48s infinite alternate;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .flame.extinguished {
+      opacity: 0;
+      transform: translateX(-50%) scale(0);
     }
 
     @keyframes flicker {
@@ -529,10 +552,12 @@
     }
 
     .cut-instruction {
-      margin-top: 14px;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.95);
+      margin-top: 18px;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.98);
       animation: pulse 1.8s ease-in-out infinite;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      font-weight: 500;
     }
 
     @keyframes pulse {
@@ -558,9 +583,12 @@
     /* Enhanced Card with glassmorphism and pulsing glow */
     .card-container {
       perspective: 1400px;
-      width: min(520px, 92vw);
-      height: min(600px, 75vh);
-      margin: 16px auto;
+      width: min(540px, 90vw);
+      height: min(650px, 80vh);
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .card {
@@ -579,14 +607,14 @@
 
     @keyframes cardPulse {
       0%, 100% {
-        box-shadow: 0 24px 80px rgba(0,0,0,0.35), 
-                    0 0 40px rgba(255, 215, 0, 0.3),
-                    0 0 60px rgba(255, 105, 180, 0.2);
+        box-shadow: 0 28px 90px rgba(0,0,0,0.45), 
+                    0 0 50px rgba(255, 215, 0, 0.4),
+                    0 0 80px rgba(255, 105, 180, 0.3);
       }
       50% {
-        box-shadow: 0 28px 90px rgba(0,0,0,0.4), 
-                    0 0 60px rgba(255, 215, 0, 0.5),
-                    0 0 80px rgba(255, 105, 180, 0.4);
+        box-shadow: 0 32px 100px rgba(0,0,0,0.5), 
+                    0 0 70px rgba(255, 215, 0, 0.6),
+                    0 0 100px rgba(255, 105, 180, 0.5);
       }
     }
 
@@ -603,14 +631,15 @@
       position: absolute;
       inset: 0;
       backface-visibility: hidden;
-      padding: clamp(20px, 5vw, 36px);
+      padding: clamp(25px, 6vw, 40px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       border-radius: 20px;
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .face.front {
@@ -625,43 +654,48 @@
 
     .card h2 { 
       font-family: 'Dancing Script', cursive; 
-      font-size: clamp(1.8rem, 4vw, 2.6rem); 
+      font-size: clamp(2rem, 5vw, 2.8rem); 
       color: #d4526e; 
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       line-height: 1.3;
+      text-shadow: 0 2px 10px rgba(212, 82, 110, 0.3);
     }
     
     .card h3 { 
       font-family: 'Playfair Display', serif; 
-      font-size: clamp(1.6rem, 3.5vw, 2.2rem); 
-      margin-bottom: 6px;
+      font-size: clamp(1.8rem, 4vw, 2.4rem); 
+      margin-bottom: 10px;
       line-height: 1.3;
       color: #2c3e50;
+      text-shadow: 0 2px 8px rgba(44, 62, 80, 0.2);
     }
     
     .wish-text { 
       font-family: 'Dancing Script', cursive; 
-      font-size: clamp(1rem, 2.3vw, 1.35rem); 
-      line-height: 1.8; 
-      color: #333;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+      font-size: clamp(1.15rem, 2.8vw, 1.45rem); 
+      line-height: 1.9; 
+      color: #2c3e50;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.8);
+      font-weight: 500;
     }
 
     .wish-text p {
-      margin: 4px 0;
+      margin: 5px 0;
     }
 
     /* Random quote */
     .random-quote {
-      margin-top: 15px;
-      padding: clamp(10px, 3vw, 15px);
-      background: rgba(255,255,255,0.4);
-      border-radius: 12px;
+      margin-top: 18px;
+      padding: clamp(12px, 3.5vw, 18px);
+      background: rgba(255,255,255,0.5);
+      border-radius: 15px;
       font-style: italic;
-      font-size: clamp(0.85rem, 2vw, 0.95rem);
+      font-size: clamp(0.95rem, 2.2vw, 1.05rem);
       color: #2c3e50;
-      border: 1px solid rgba(255,255,255,0.6);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border: 2px solid rgba(255,255,255,0.7);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      line-height: 1.6;
+      font-weight: 500;
     }
 
     /* Balloons with hover effect */
@@ -723,8 +757,9 @@
       gap: 4px;
       height: 60px;
       align-items: flex-end;
-      z-index: 9999;
+      z-index: 100;
       opacity: 0.7;
+      pointer-events: none;
     }
 
     .visualizer-bar {
@@ -771,8 +806,8 @@
       }
 
       .visualizer {
-        bottom: 10px;
-        height: 40px;
+        bottom: 80px;
+        height: 35px;
         gap: 3px;
       }
 
@@ -781,13 +816,14 @@
       }
 
       .cake-wrap {
-        width: min(280px, 85vw);
-        height: min(340px, 55vh);
+        width: min(280px, 82vw);
+        height: min(340px, 50vh);
       }
 
       .card-container {
-        width: 95vw;
-        height: min(550px, 70vh);
+        width: 82vw;
+        height: min(600px, 85vh);
+        margin: 15px auto;
       }
 
       .balloon {
@@ -796,7 +832,8 @@
       }
 
       h1.title {
-        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        font-size: clamp(2rem, 7vw, 2.8rem);
+        margin-bottom: 12px;
       }
 
       .name-display {
@@ -804,12 +841,16 @@
       }
 
       .page {
-        padding: 20px 10px;
+        padding: 15px 10px;
       }
 
       .content {
         width: 98%;
-        padding: 0 10px;
+        padding: 10px;
+      }
+
+      .btn {
+        margin: 8px 6px;
       }
     }
 
@@ -838,11 +879,21 @@
       }
 
       .card-container {
-        height: min(500px, 65vh);
+        height: min(550px, 70vh);
+        width: 95vw;
       }
 
       .face {
-        padding: 15px;
+        padding: 20px 15px;
+      }
+
+      h1.title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+      }
+
+      .visualizer {
+        bottom: 70px;
+        height: 30px;
       }
     }
 
@@ -852,24 +903,46 @@
       }
       
       .cake-wrap {
-        height: min(280px, 50vh);
+        height: min(260px, 45vh);
         margin: 10px auto;
       }
       
       .card-container {
-        height: min(400px, 85vh);
+        height: min(450px, 90vh);
+        margin: 10px auto;
       }
 
       .countdown {
-        margin: 15px auto;
+        margin: 12px auto;
       }
 
       .countdown-item {
-        padding: 8px 12px;
+        padding: 6px 10px;
       }
 
       h1.title {
         margin-bottom: 8px;
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+      }
+
+      .visualizer {
+        bottom: 15px;
+        height: 30px;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .card-container {
+        width: 560px;
+        height: 680px;
+      }
+
+      h1.title {
+        font-size: 3.8rem;
+      }
+
+      .name-display {
+        font-size: 4.5rem;
       }
     }
 
@@ -969,7 +1042,7 @@
   <!-- PAGE 3: Cake & cut -->
   <section class="page hidden" id="page3" aria-label="Cake">
     <div class="content">
-      <h2 class="title" style="font-size:2rem; margin-bottom:12px;">Time to Cut the Cake! 🎂</h2>
+      <h2 class="title" style="font-size:2rem; margin-bottom:38px;">Time to Cut the Cake! 🎂</h2>
 
       <div class="cake-wrap" role="button" tabindex="0" aria-label="Click the cake to cut it" id="cakeWrap">
         <div class="cake" id="cake">
@@ -1179,17 +1252,30 @@
         announcer.textContent = 'Moved to page ' + pageNumber;
 
         if (pageNumber === 2) {
-          spawnHearts(18);
-          setTimeout(() => spawnFireworksBurst(6), 700);
+          spawnHearts(25);
+          setTimeout(() => spawnFireworksBurst(12), 400);
+          setTimeout(() => spawnFireworksBurst(12), 800);
+          setTimeout(() => spawnFireworksBurst(10), 1200);
           playSound('celebrate');
         }
         if (pageNumber === 3) {
-          spawnConfetti(80);
+          spawnConfetti(100);
+          setTimeout(() => spawnFireworksBurst(8), 500);
           playSound('celebrate');
         }
         if (pageNumber === 4) {
           if (page4FireworksInterval) clearInterval(page4FireworksInterval);
-          page4FireworksInterval = setInterval(() => spawnFireworksBurst(8), 2300);
+          
+          // Initial burst
+          spawnFireworksBurst(15);
+          setTimeout(() => spawnFireworksBurst(12), 600);
+          
+          // Continuous fireworks
+          page4FireworksInterval = setInterval(() => {
+            spawnFireworksBurst(10);
+            setTimeout(() => spawnFireworksBurst(8), 800);
+          }, 3000);
+          
           displayRandomQuote();
           playSound('celebrate');
         } else {
@@ -1211,7 +1297,11 @@
     
     surpriseBtn.addEventListener('click', () => {
       goTo(2);
-      spawnHearts(30);
+      setTimeout(() => {
+        spawnHearts(40);
+        spawnFireworksBurst(15);
+        setTimeout(() => spawnFireworksBurst(12), 500);
+      }, 300);
       playSound('surprise');
     });
 
@@ -1327,45 +1417,73 @@
     function cutCake() {
       if (cakeCut) return;
       cakeCut = true;
-      cake.classList.add('cutting');
-      playSound('cut');
 
-      cutInstruction.textContent = '🎉 Cake cut successfully! 🎉';
-      announce('Cake cut. You can open your card.');
-
-      setTimeout(() => spawnConfetti(40), 300);
-      setTimeout(() => spawnConfetti(40), 700);
-      setTimeout(() => spawnHearts(12), 500);
-
-      for (let i = 0; i < 4; i++) {
-        const piece = document.createElement('div');
-        piece.className = 'piece';
-        const dir = (i % 2 === 0) ? -1 : 1;
-        const tx = (120 + Math.random()*240) * dir;
-        const ty = -(160 + Math.random()*220);
-        piece.style.setProperty('--tx', tx + 'px');
-        piece.style.setProperty('--ty', ty + 'px');
-        
-        const rect = cakeWrap.getBoundingClientRect();
-        piece.style.left = (rect.left + rect.width * (0.35 + i*0.18)) + 'px';
-        piece.style.top = (rect.top + rect.height * 0.5) + 'px';
-        
-        piece.style.background = (i % 2 === 0)
-          ? 'linear-gradient(135deg,#ff9cb8,#ffd66b)'
-          : 'linear-gradient(135deg,#ffd66b,#ffaf6b)';
-        document.body.appendChild(piece);
-        setTimeout(() => piece.remove(), 1600 + Math.random()*400);
-      }
+      // Blow out candles first
+      const candles = document.querySelector('.candles');
+      const flames = document.querySelectorAll('.flame');
+      
+      flames.forEach((flame, index) => {
+        setTimeout(() => {
+          flame.classList.add('extinguished');
+        }, index * 150);
+      });
 
       setTimeout(() => {
-        seeCardBtn.classList.add('visible');
-        seeCardBtn.setAttribute('aria-hidden','false');
-      }, 1100);
+        candles.classList.add('blown-out');
+      }, 600);
+
+      // Then cut cake
+      setTimeout(() => {
+        cake.classList.add('cutting');
+        playSound('cut');
+
+        cutInstruction.textContent = '🎉 Cake cut successfully! 🎉';
+        announce('Cake cut. You can open your card.');
+
+        setTimeout(() => spawnConfetti(60), 200);
+        setTimeout(() => spawnConfetti(60), 600);
+        setTimeout(() => spawnHearts(20), 400);
+
+        // Create flying pieces
+        for (let i = 0; i < 4; i++) {
+          const piece = document.createElement('div');
+          piece.className = 'piece';
+          const dir = (i % 2 === 0) ? -1 : 1;
+          const tx = (120 + Math.random()*240) * dir;
+          const ty = -(160 + Math.random()*220);
+          piece.style.setProperty('--tx', tx + 'px');
+          piece.style.setProperty('--ty', ty + 'px');
+          
+          const rect = cakeWrap.getBoundingClientRect();
+          piece.style.left = (rect.left + rect.width * (0.35 + i*0.18)) + 'px';
+          piece.style.top = (rect.top + rect.height * 0.5) + 'px';
+          
+          piece.style.background = (i % 2 === 0)
+            ? 'linear-gradient(135deg,#ff9cb8,#ffd66b)'
+            : 'linear-gradient(135deg,#ffd66b,#ffaf6b)';
+          document.body.appendChild(piece);
+          setTimeout(() => piece.remove(), 1600 + Math.random()*400);
+        }
+
+        setTimeout(() => {
+          seeCardBtn.classList.add('visible');
+          seeCardBtn.setAttribute('aria-hidden','false');
+        }, 1100);
+      }, 800);
     }
 
     function resetCake() {
       cakeCut = false;
       cake.classList.remove('cutting');
+      
+      // Reset candles
+      const candles = document.querySelector('.candles');
+      const flames = document.querySelectorAll('.flame');
+      candles.classList.remove('blown-out');
+      flames.forEach(flame => {
+        flame.classList.remove('extinguished');
+      });
+      
       cutInstruction.textContent = '👆 Click the cake to cut it!';
       seeCardBtn.classList.remove('visible');
       seeCardBtn.setAttribute('aria-hidden','true');
@@ -1400,7 +1518,8 @@
         birthdayCard.querySelector('.back').setAttribute('aria-hidden', 'true');
       }
       
-      spawnConfetti(36);
+      spawnConfetti(50);
+      setTimeout(() => spawnFireworksBurst(12), 300);
       playSound('flip');
       announce(cardFlipped ? 'Card flipped to back' : 'Card flipped to front');
     }
@@ -1440,43 +1559,56 @@
     function spawnFireworksBurst(density = 20) {
       if (particleCount > MAX_PARTICLES) return;
       
-      const colors = ['#FF1493','#FFD700','#00FFFF','#FF69B4','#FFA500','#00FF00'];
-      const centerX = Math.random() * window.innerWidth;
-      const centerY = Math.random() * (window.innerHeight * 0.55);
-      const batch = Math.min(density, MAX_PARTICLES - particleCount);
+      const colors = ['#FF1493','#FFD700','#00FFFF','#FF69B4','#FFA500','#00FF00','#FF6B9D','#9D50BB'];
       
-      for (let i = 0; i < batch; i++) {
+      // Create multiple burst origins for realistic fireworks
+      const burstCount = Math.ceil(density / 15);
+      
+      for (let b = 0; b < burstCount; b++) {
         setTimeout(() => {
-          const ball = document.createElement('div');
-          ball.className = 'particle firework';
-          const col = colors[Math.floor(Math.random()*colors.length)];
-          ball.style.background = col;
-          ball.style.left = centerX + 'px';
-          ball.style.top = centerY + 'px';
+          const centerX = 0.2 * window.innerWidth + Math.random() * (0.6 * window.innerWidth);
+          const centerY = 0.1 * window.innerHeight + Math.random() * (0.4 * window.innerHeight);
           
-          const angle = (Math.PI*2) * (i / batch);
-          const vel = 80 + Math.random()*150;
-          const tx = Math.cos(angle) * vel;
-          const ty = Math.sin(angle) * vel;
+          const particlesPerBurst = Math.min(density, 20);
           
-          document.body.appendChild(ball);
-          particleCount++;
-          
-          requestAnimationFrame(() => {
-            ball.style.transform = `translate(${tx}px, ${ty}px)`;
-            ball.style.opacity = '1';
-            ball.style.transition = 'transform 900ms cubic-bezier(.2,.8,.2,1), opacity 900ms ease';
-          });
-          
-          setTimeout(() => {
-            ball.style.opacity = '0';
-          }, 50);
-          
-          setTimeout(() => {
-            ball.remove();
-            particleCount--;
-          }, 950);
-        }, i * 14);
+          for (let i = 0; i < particlesPerBurst; i++) {
+            setTimeout(() => {
+              const ball = document.createElement('div');
+              ball.className = 'particle firework';
+              const col = colors[Math.floor(Math.random()*colors.length)];
+              ball.style.background = col;
+              ball.style.left = centerX + 'px';
+              ball.style.top = centerY + 'px';
+              
+              // Create circular explosion pattern
+              const angle = (Math.PI * 2) * (i / particlesPerBurst);
+              const randomAngleOffset = (Math.random() - 0.5) * 0.3;
+              const finalAngle = angle + randomAngleOffset;
+              
+              const vel = 100 + Math.random() * 180;
+              const tx = Math.cos(finalAngle) * vel;
+              const ty = Math.sin(finalAngle) * vel;
+              
+              document.body.appendChild(ball);
+              particleCount++;
+              
+              requestAnimationFrame(() => {
+                ball.style.transform = `translate(${tx}px, ${ty}px)`;
+                ball.style.opacity = '1';
+                ball.style.transition = 'transform 1100ms cubic-bezier(.15,.8,.2,1), opacity 1100ms ease';
+              });
+              
+              setTimeout(() => {
+                ball.style.opacity = '0';
+              }, 50);
+              
+              setTimeout(() => {
+                ball.remove();
+                particleCount--;
+              }, 1150);
+            }, i * 12);
+          }
+        }, b * 400);
       }
     }
 
